@@ -43,9 +43,10 @@ pretty(simplify(Hcloop))       % to display the total transfer function
 % Substitute parameters and solve
 % system parameters
 g = 9.81;
-l = 22*2.54/100;  %effective length 
-a = 14;           %nominal motor parameters
-b = 1/400;        %nominal motor parameters
+l = 39/100;  %effective length 
+a = 10.0362;           %nominal motor parameters
+b = 0.0033;        %nominal motor parameters
+wn = 4.9
 
 Hcloop_sub = subs(Hcloop) % sub parameter values into Hcloop
 
@@ -59,11 +60,11 @@ Hcloop_sub = subs(Hcloop) % sub parameter values into Hcloop
 % p4 = -8
 % p5 = -8.
 
-p1 = -1 + 2*i   % dominant pole pair
-p2 = -1 -2*i    % dominant pole pair 
-p3 = -6
-p4 = -42    % dominant pole pair
-p5 = -24     % dominant pole pair 
+p1 = -3.92 + 2.191346618*i % dominant pole pair
+p2 = -3.92 - 2.191346618*i   % dominant pole pair 
+p3 = -wn
+p4 = -4.41 + 1.5495160538*i % dominant pole pair
+p5 = -4.41 - 1.5495160538*i    % dominant pole pair 
 
 % target characteristic polynomial
 % if motor model (TF) is added, order of polynomial will increases
